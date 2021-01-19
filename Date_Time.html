@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOCK</title>
+    <style>
+        body {
+	margin: 10;
+	padding: 0;
+	/* box-sizing: border-box;
+	/* font-family: "Lato", sans-serif; */
+    
+
+}
+
+#clock {
+	height: 100vh;
+	width: 100%;
+	/* background-color: #14080e; */
+    background-color: rgb(58, 7, 7);
+    font-style:italic;
+	color: #989b3f;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 70px;
+}
+    </style>
+
+</head>
+<body>
+    <div id='clock'></div>
+    
+        <script>
+            let clock = () => {
+  let date = new Date();
+  let hrs = date.getHours();
+  let mins = date.getMinutes();
+  let secs = date.getSeconds();
+  let ap = "AM";
+  if (hrs == 0) {
+    hrs = 12;
+  } else if (hrs >= 12) {
+    hrs = hrs - 12;
+    ap = "PM";
+  }
+
+
+
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+// document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+
+
+  let time = `Time --> ${hrs}:${mins}:${secs}:${ap}
+  Date --> ${d}/${m}/${y}`;
+  document.getElementById("clock").innerText = time;
+  setTimeout(clock, 1000);
+};
+
+clock();
+
+        </script>
+    
+</body>
+</html>
